@@ -50,6 +50,19 @@ function displayPhotoCollection( photos ) {
     }
 }
 
+function displayMessage( message ) {
+    const main = document.querySelector('main');
+    //main.textContent = message;
+    main.innerHTML = '<p class="alert alert-info text-center">' + message + '</p>';
+
+    //Template literal strings
+    // main.innerHTML = `
+    //    <p class="alert alert-info text-center">
+    //    ${message}
+    //    </p>
+    // `;
+}
+
 
 // Uruchomienie funkcji
 //displayImages();
@@ -59,5 +72,16 @@ function displayPhotoCollection( photos ) {
 //renderPhoto('https://picsum.photos/id/10/300/150');
 //renderPhoto('https://picsum.photos/id/20/300/150');
 //renderPhoto('https://picsum.photos/id/30/300/150');
+//displayPhotoCollection( images );
 
-displayPhotoCollection( images );
+const canDisplayPhotos = prompt('Czy chcesz wyświetlić zdjęcia?');
+
+if (canDisplayPhotos.toLowerCase() === 'tak') {
+//if (images.length === 0) {
+    console.log('odpowiedź tak');
+    displayPhotoCollection( images );
+} else {
+    console.log('odpowiedź nie');
+    displayMessage('Użytkownik nie chce wyświetlić zdjęć');
+}
+
