@@ -1,17 +1,6 @@
-const image1 = "https://picsum.photos/id/10/300/150";
-const image2 = "https://picsum.photos/id/20/300/150";
-const image3 = "https://picsum.photos/id/30/300/150";
-
-const images = [image1, image2, image3];
-
-//images.push("https://picsum.photos/500/300/150");
-
-//images.push(image1, image2, image3);
-
-
 // Pętla: for..of
 for (const image of images) {
-   //console.log("To jest obrazek " + image);
+   console.log("To jest obrazek " + image);
 }
 
 //Pętla: for
