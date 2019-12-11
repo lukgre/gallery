@@ -81,7 +81,7 @@ if (canDisplayPhotos.toLowerCase() === 'tak') {
     console.log('odpowiedź tak');
     displayPhotoCollection( images );
 } else {
-    console.log('odpowiedź nie');
+    console.log('odpowiedź inna niż tak');
     displayMessage('Użytkownik nie chce wyświetlić zdjęć');
 }
 
