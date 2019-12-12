@@ -10,8 +10,8 @@ for (let i = 0; i < images.length; i++) {
     //console.log("To jest obrazek " + image);
 }
 
-const isEmpty = (images.length === 0);
-const isEmpty2 = (images.length == 0);
+//const isEmpty = (images.length === 0);
+//const isEmpty2 = (images.length == 0);
 
 function displayImages() {
     console.log('Liczba obrazków ' + images.length);
@@ -74,14 +74,40 @@ function displayMessage( message ) {
 //renderPhoto('https://picsum.photos/id/30/300/150');
 //displayPhotoCollection( images );
 
-const canDisplayPhotos = prompt('Czy chcesz wyświetlić zdjęcia?');
+// function shouldDisplayPhotos() {
+//     const answer = prompt('Czy chcesz wyświetlić zdjęcia?');
+//     return (answer.toLowerCase()) === 'tak';
+// }
 
-if (canDisplayPhotos.toLowerCase() === 'tak') {
-//if (images.length === 0) {
-    console.log('odpowiedź tak');
-    displayPhotoCollection( images );
-} else {
-    console.log('odpowiedź inna niż tak');
-    displayMessage('Użytkownik nie chce wyświetlić zdjęć');
+
+// if (shouldDisplayPhotos()) {
+// //if (images.length === 0) {
+//     console.log('odpowiedź tak');
+//     displayPhotoCollection( images );
+// } else {
+//     console.log('odpowiedź inna niż tak');
+//     displayMessage('Użytkownik nie chce wyświetlić zdjęć');
+// }
+
+
+function isEmpty () {
+    return images.length === 0;
 }
+
+loader.show();
+
+//if (images.length > 4 && images.length < 5) {
+if (! isEmpty()) {
+        console.log('zdjęcia istnieją');
+        displayPhotoCollection( images );
+    } else {
+        console.log('brak zdjęć');
+        displayMessage('Nie ma zdjęć.')
+}
+
+
+setTimeout(function () {
+    console.info('chowamy loaderka');
+    loader.hide();
+}, 1500); //1.5s
 
