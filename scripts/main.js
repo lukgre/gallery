@@ -1,6 +1,6 @@
 // Pętla: for..of
 for (const image of images) {
-   console.log("To jest obrazek " + image);
+    console.log("To jest obrazek " + image);
 }
 
 //Pętla: for
@@ -17,11 +17,11 @@ function displayImages() {
     console.log('Liczba obrazków ' + images.length);
     console.log('Pierwszy element listy ' + images[0]);
     console.log('Drugi element listy ' + images[1]);
-    
+
 }
 
 function displayLastElement() {
-    console.log('Ostatni element listy ' + images[ images.length - 1 ]);
+    console.log('Ostatni element listy ' + images[images.length - 1]);
 }
 
 function displayMathExercises() {
@@ -42,15 +42,15 @@ function renderPhoto(url) {
     //console.log(url);
     //console.log(img);
 }
- 
-function displayPhotoCollection( photos ) {
+
+function displayPhotoCollection(photos) {
     console.log(photos);
     for (const photo of photos) {
-        renderPhoto( photo );
+        renderPhoto(photo);
     }
 }
 
-function displayMessage( message ) {
+function displayMessage(message) {
     const main = document.querySelector('main');
     //main.textContent = message;
     main.innerHTML = '<p class="alert alert-info text-center">' + message + '</p>';
@@ -90,19 +90,19 @@ function displayMessage( message ) {
 // }
 
 
-function isEmpty () {
+function isEmpty() {
     return images.length === 0;
 }
 
 loader.show();
 
 //if (images.length > 4 && images.length < 5) {
-if (! isEmpty()) {
-        console.log('zdjęcia istnieją');
-        displayPhotoCollection( images );
-    } else {
-        console.log('brak zdjęć');
-        displayMessage('Nie ma zdjęć.')
+if (!isEmpty()) {
+    console.log('zdjęcia istnieją');
+    displayPhotoCollection(images);
+} else {
+    console.log('brak zdjęć');
+    displayMessage('Nie ma zdjęć.')
 }
 
 
