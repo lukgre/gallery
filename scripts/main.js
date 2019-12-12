@@ -1,14 +1,14 @@
 // Pętla: for..of
-for (const image of images) {
-    console.log("To jest obrazek " + image);
-}
+//for (const image of images) {
+//  console.log("To jest obrazek " + image);
+//}
 
 //Pętla: for
 //i++ => i=i+1
-for (let i = 0; i < images.length; i++) {
-    const image = images[i];
-    //console.log("To jest obrazek " + image);
-}
+//for (let i = 0; i < images.length; i++) {
+//  const image = images[i];
+//console.log("To jest obrazek " + image);
+//}
 
 //const isEmpty = (images.length === 0);
 //const isEmpty2 = (images.length == 0);
@@ -32,36 +32,45 @@ function displayMathExercises() {
     console.log('** ' + (10000 ** 10000));
 }
 
-function renderPhoto(url) {
-    //const url = "https://picsum.photos/300/150";
-    const img = document.createElement('img');
-    img.src = url;
+//zadać pytanie skąd wiadomo ze to obiekt, jakiej klasy, inaczej niz w javie
+function renderPhoto(photo) {
+    const $card = document.createElement('div');
+    $card.classList.add('card', 'col-3', 'mx-4');
+    $card.style.width = '30%';
 
-    const main = document.querySelector('main');
-    main.append(img);
-    //console.log(url);
-    //console.log(img);
+    const $img = document.createElement('img');
+    $img.src = photo.imageUrl;
+
+    const $body = document.createElement('div');
+    $body.classList.add('card-body');
+
+    const $title = document.createElement('h5');
+    $title.classList.add('card-title');
+    $title.textContent = photo.description;
+
+    // Group HTML Elements
+    $card.append($img);
+    $card.append($body);
+    $body.append($title);
+
+    //Render
+    const $main = document.querySelector('main');
+    $main.append($card);
 }
 
-function displayPhotoCollection(photos) {
-    console.log(photos);
-    for (const photo of photos) {
+function displayPhotos(photos) {
+    // for (const photo of photos) {
+    //     renderPhoto(photo);
+    // }
+    photos.forEach(function (photo) {
+        console.group(photo.id);
+        console.info(photo.author.name);
+        console.groupEnd();
         renderPhoto(photo);
-    }
+    });
 }
 
-function displayMessage(message) {
-    const main = document.querySelector('main');
-    //main.textContent = message;
-    main.innerHTML = '<p class="alert alert-info text-center">' + message + '</p>';
 
-    //Template literal strings
-    // main.innerHTML = `
-    //    <p class="alert alert-info text-center">
-    //    ${message}
-    //    </p>
-    // `;
-}
 
 
 // Uruchomienie funkcji
@@ -90,24 +99,60 @@ function displayMessage(message) {
 // }
 
 
-function isEmpty() {
+function isEmpty(images) {
     return images.length === 0;
 }
 
-loader.show();
 
-//if (images.length > 4 && images.length < 5) {
-if (!isEmpty()) {
-    console.log('zdjęcia istnieją');
-    displayPhotoCollection(images);
-} else {
-    console.log('brak zdjęć');
-    displayMessage('Nie ma zdjęć.')
+function main() {
+
+    loader.show();
+
+    fetchPhotosFromRemote()
+        .then(function (images) {
+
+            if (!isEmpty()) {
+                //console.log('zdjęcia istnieją');
+                displayPhotos(images);
+            } else {
+                //console.log('brak zdjęć');
+                displayMessage('Nie ma zdjęć.')
+            }
+
+        })
+
+        .catch(function () {
+            displayErrorMessage('Problem z pobraniem zdjęć');
+        })
+        .finally(function () {
+            loader.hide();
+        });
+
+
+
+    setTimeout(function () {
+        console.info('chowamy loaderka');
+        loader.hide();
+    }, 1500); //1.5s
+
+
+    const authors = images.map(function (image) {
+        return image.author;
+    });
+    console.log(authors);
+
+
+    const masterPrice = images.reduce(function (memory, image) {
+        console.warn(memory);
+        memory = memory + image.price;
+        return memory;
+    }, 0);
+
+    const groupByPrice = images.reduce(function (memory, image) {
+        memory[image.price] = image;
+        return memory;
+    }, {})
+
 }
 
-
-setTimeout(function () {
-    console.info('chowamy loaderka');
-    loader.hide();
-}, 1500); //1.5s
-
+main();

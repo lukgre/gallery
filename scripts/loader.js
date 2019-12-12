@@ -6,7 +6,7 @@ loader.show = function () {
     // dodanie klasy CSS do elementu drzewa DOM
     img.classList.add('loader');
     // 2. Ustawienei atrybutu src
-    img.src = 'images/loader.gif';
+    img.src = 'images/loader.svg';
     // 3. Pobranie referencji do konetenere, w którym loader się wyświetli
     const main = document.querySelector('main');
     // 4. Dodanie loadera do kontenera
@@ -20,5 +20,3 @@ loader.hide = function () {
     $loader.remove();
 
 };
-
-console.log(loader);
