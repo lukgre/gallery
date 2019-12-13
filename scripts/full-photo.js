@@ -7,16 +7,16 @@ class FullPhoto {
         height: null
     };
 
-    constructor(url, width, height){
+    constructor(url, width, height) {
         this.url = url;
         this.size.width = width;
         this.size.height = height;
     }
 
     // Metoda (funkcja klasy) -> Method
-    display() {}
+    display() { }
 
-    close() {}
+    close() { }
 
 }
 

@@ -3,7 +3,7 @@ function fetchPhotos(url) {
         .then(function (response) {
             return response.json();
         });
-        
+
 }
 
 function fetchPhotosFromRemote() {

@@ -108,7 +108,18 @@ function main() {
 
     loader.show();
 
-    fetchPhotosFromRemote()
+    fetchPhotosFromLocal()
+
+        .then(function (images) {
+            // mapowanie kolekcji
+            return images.map(function (image) {
+                image.imageUrl = image.url;
+                image.description = image.title;
+                //zwracam zaktualizowany obiekt
+                return image;
+            });
+        })
+
         .then(function (images) {
 
             if (!isEmpty(images)) {
@@ -125,7 +136,7 @@ function main() {
             console.log('problem z pobraniem');
             displayErrorMessage('Problem z pobraniem zdjęć');
         })
-        
+
         .finally(function () {
             loader.hide();
         });

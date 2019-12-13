@@ -13,6 +13,6 @@ function displayMessage(message, label = 'alert-info') {
     `;
 }
 
-function displayErrorMessage(errorMessage)  {
+function displayErrorMessage(errorMessage) {
     displayMessage(errorMessage, 'alert-danger');
 }

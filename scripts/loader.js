@@ -17,6 +17,7 @@ loader.hide = function () {
     // 1. Pobranie referencji do loader (dobra praktyka to dodanie $ do nazwy zmiennej)
     const $loader = document.querySelector('img.loader')
 
+    // sprawdzenie czy istnieje <img class="loader" href="...">
     if ($loader) {
         // 2. Usunięcie elementu z DOMa
         $loader.remove();
