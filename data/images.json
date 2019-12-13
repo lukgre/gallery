@@ -1,0 +1,20 @@
+[
+    {
+        "url": "https://picsum.photos/id/448/300/150",
+        "title": "obrazek nr 1",
+        "author": "autor nr 1",
+        "price": 1000
+    },
+    {
+        "url": "https://picsum.photos/id/449/300/150",
+        "title": "obrazek nr 2",
+        "author": "autor nr 2",
+        "price": 2000
+    },
+    {
+        "url": "https://picsum.photos/id/450/300/150",
+        "title": "obrazek nr 3",
+        "author": "autor nr 3",
+        "price": 3000
+    }
+]
