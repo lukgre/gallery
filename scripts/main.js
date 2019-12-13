@@ -71,8 +71,6 @@ function displayPhotos(photos) {
 }
 
 
-
-
 // Uruchomienie funkcji
 //displayImages();
 //displayLastElement();
@@ -106,28 +104,31 @@ function isEmpty(images) {
 
 function main() {
 
+    //debugger;
+
     loader.show();
 
     fetchPhotosFromRemote()
         .then(function (images) {
 
-            if (!isEmpty()) {
-                //console.log('zdjęcia istnieją');
+            if (!isEmpty(images)) {
+                console.log('zdjęcia istnieją');
                 displayPhotos(images);
             } else {
-                //console.log('brak zdjęć');
+                console.log('brak zdjęć');
                 displayMessage('Nie ma zdjęć.')
             }
 
         })
 
         .catch(function () {
+            console.log('problem z pobraniem');
             displayErrorMessage('Problem z pobraniem zdjęć');
         })
+        
         .finally(function () {
             loader.hide();
         });
-
 
 
     setTimeout(function () {
@@ -135,23 +136,6 @@ function main() {
         loader.hide();
     }, 1500); //1.5s
 
-
-    const authors = images.map(function (image) {
-        return image.author;
-    });
-    console.log(authors);
-
-
-    const masterPrice = images.reduce(function (memory, image) {
-        console.warn(memory);
-        memory = memory + image.price;
-        return memory;
-    }, 0);
-
-    const groupByPrice = images.reduce(function (memory, image) {
-        memory[image.price] = image;
-        return memory;
-    }, {})
 
 }
 

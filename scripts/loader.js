@@ -16,7 +16,11 @@ loader.show = function () {
 loader.hide = function () {
     // 1. Pobranie referencji do loader (dobra praktyka to dodanie $ do nazwy zmiennej)
     const $loader = document.querySelector('img.loader')
-    // 2. Usunięcie elementu z DOMa
-    $loader.remove();
+
+    if ($loader) {
+        // 2. Usunięcie elementu z DOMa
+        $loader.remove();
+    }
+
 
 };
