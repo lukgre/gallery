@@ -8,7 +8,7 @@
     "deploy": "gh-pages -d app/"
   },
   "devDependencies": {
-    "http-server": "^0.12.0",
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^2.1.1",
+    "http-server": "^0.12.0"
   }
 }
