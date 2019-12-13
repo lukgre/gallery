@@ -23,5 +23,6 @@ loader.hide = function () {
         $loader.remove();
     }
 
-
 };
+
+module.exports = loader;

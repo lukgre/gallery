@@ -1,3 +1,6 @@
+const loader = require('./loader');
+const { fetchPhotosFromLocal } = require('./service');
+
 // Pętla: for..of
 //for (const image of images) {
 //  console.log("To jest obrazek " + image);
